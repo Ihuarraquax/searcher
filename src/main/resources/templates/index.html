@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Dodaj URL strony do wyszukiwarki:<br>
+<form method="post" action="/">
+    <input type="text" name="url"><br>
+    <input type="submit" value="dodaj">
+</form>
+
+<br>
+
+Wyszukaj po frazie:<br>
+<form method="post" action="/search">
+    <input type="text" name="phrase"><br>
+    <input type="submit" value="wyszukaj">
+</form>
+
+<table>
+    <tr>
+        <td>Tytuł</td>
+        <td>URL</td>
+    </tr>
+    <tr th:each="page: ${pages}">
+        <td th:text="${page.title}"></td>
+        <td><a th:href="${page.url}"><p th:text="${page.url}"></p></a></td>
+    </tr>
+</table>
+</body>
+</html>
